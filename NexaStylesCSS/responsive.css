@@ -342,7 +342,7 @@
         left: auto;
         flex: 0 1 auto;
         margin: 0;
-        font-size: clamp(1rem, 3.8vw, 1.35rem);
+        font-size: clamp(2rem, 3.8vw, 1.35rem);
     }
 
     .nav-links {

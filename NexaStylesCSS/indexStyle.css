@@ -1483,7 +1483,7 @@ line-height: 1.5;
     }
 
     .copyright {
-        bottom: 18px;
+        padding:10px 0px 10px 0px;
         font-size: 11px;
         white-space: normal;
         line-height: 1.5;
