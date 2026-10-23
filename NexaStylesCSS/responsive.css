@@ -293,7 +293,7 @@
     }
 
     .copyright {
-        max-width: calc(100% - 2rem);
+        max-width: calc(100% - 0rem);
     }
 
     .srollEventBtn button {
