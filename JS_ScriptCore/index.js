@@ -135,3 +135,5 @@ window.addEventListener("resize", function () {
         setNavigationOpen(false);
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () { const ranges = document.querySelectorAll( ".allskiillin-exp input[type='range']" ); ranges.forEach(function (range) { function updateRange() { const min = Number(range.min) || 0; const max = Number(range.max) || 100; const value = Number(range.value); const percent = max > min ? ((value - min) / (max - min)) * 100 : 0; range.style.setProperty("--progress", percent + "%"); } updateRange(); range.addEventListener("input", updateRange); }); });

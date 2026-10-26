@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neumorphism Calculator</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #d8daed;
+  font-family: Arial, sans-serif;
+}
+
+.calculator {
+  width: 320px;
+  padding: 25px 20px 20px;
+  border-radius: 30px;
+  background: #d8e2ed;
+  box-shadow:
+    12px 12px 25px #b9c2cc,
+    -12px -12px 25px #f7ffff;
+}
+
+.display {
+  height: 105px;
+  padding: 15px 15px 12px;
+  margin-bottom: 22px;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  background: #d8e2ed;
+  box-shadow:
+    inset 5px 5px 10px #b9c2cc,
+    inset -5px -5px 10px #f7ffff;
+}
+
+.previous {
+  width: 100%;
+  min-height: 22px;
+  font-size: 14px;
+  color: #7c8795;
+  text-align: right;
+  overflow: hidden;
+}
+
+.current {
+  max-width: 100%;
+  font-size: 36px;
+  font-weight: 700;
+  color: #283246;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+}
+
+button {
+  height: 54px;
+  border: none;
+  border-radius: 17px;
+  background: #d8e2ed;
+  color: #344052;
+  font-size: 19px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow:
+    5px 5px 10px #bac4cf,
+    -5px -5px 10px #f8ffff;
+  transition: transform .12s, box-shadow .12s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+  transform: scale(.96);
+  box-shadow:
+    inset 4px 4px 7px #bac4cf,
+    inset -4px -4px 7px #f8ffff;
+}
+
+button:focus-visible {
+  outline: 2px solid #6258ff;
+  outline-offset: 3px;
+}
+
+.operator {
+  color: #4269d8;
+}
+
+.equal {
+  color: white;
+  background: linear-gradient(135deg, #586cff, #6842ed);
+  box-shadow:
+    4px 4px 9px #bac4cf,
+    -4px -4px 9px #f8ffff;
+}
+
+.equal:active {
+  box-shadow: inset 3px 3px 7px #4636c9;
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+@media (max-width: 360px) {
+  .calculator {
+    width: min(320px, calc(100vw - 30px));
+    padding: 22px 16px 18px;
+  }
+
+  .buttons {
+    gap: 11px;
+  }
+
+  button {
+    height: 51px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+
+  <div class="display">
+    <div class="previous" id="previous"></div>
+    <div class="current" id="current">0</div>
+  </div>
+
+  <div class="buttons">
+    <button data-action="clear">AC</button>
+    <button data-action="sign">±</button>
+    <button data-action="percent">%</button>
+    <button class="operator" data-operator="/">÷</button>
+
+    <button data-number="7">7</button>
+    <button data-number="8">8</button>
+    <button data-number="9">9</button>
+    <button class="operator" data-operator="*">×</button>
+
+    <button data-number="4">4</button>
+    <button data-number="5">5</button>
+    <button data-number="6">6</button>
+    <button class="operator" data-operator="-">−</button>
+
+    <button data-number="1">1</button>
+    <button data-number="2">2</button>
+    <button data-number="3">3</button>
+    <button class="operator" data-operator="+">+</button>
+
+    <button class="zero" data-number="0">0</button>
+    <button data-action="decimal">.</button>
+    <button class="equal" data-action="equals">=</button>
+  </div>
+
+</div>
+
+<script>
+const currentDisplay = document.getElementById("current");
+const previousDisplay = document.getElementById("previous");
+const buttons = document.querySelector(".buttons");
+
+let current = "0";
+let previous = null;
+let operator = null;
+let shouldReset = false;
+let expression = "";
+
+function updateDisplay() {
+  currentDisplay.textContent = current;
+  previousDisplay.textContent = expression;
+}
+
+function inputNumber(number) {
+  if (shouldReset || current === "Error") {
+    current = number;
+    shouldReset = false;
+  } else if (current === "0") {
+    current = number;
+  } else if (current.replace("-", "").length < 15) {
+    current += number;
+  }
+  updateDisplay();
+}
+
+function inputDecimal() {
+  if (shouldReset || current === "Error") {
+    current = "0.";
+    shouldReset = false;
+  } else if (!current.includes(".")) {
+    current += ".";
+  }
+  updateDisplay();
+}
+
+function chooseOperator(nextOperator) {
+  if (current === "Error") return;
+
+  if (operator && !shouldReset) {
+    calculate();
+  }
+
+  previous = Number(current);
+  operator = nextOperator;
+
+  const symbol = {
+    "+": "+",
+    "-": "−",
+    "*": "×",
+    "/": "÷"
+  };
+
+  expression = `${current} ${symbol[operator]}`;
+  shouldReset = true;
+  updateDisplay();
+}
+
+function calculate() {
+  if (operator === null || previous === null) return;
+
+  const a = previous;
+  const b = Number(current);
+  let result;
+
+  switch (operator) {
+    case "+": result = a + b; break;
+    case "-": result = a - b; break;
+    case "*": result = a * b; break;
+    case "/":
+      if (b === 0) {
+        current = "Error";
+        expression = "Cannot divide by zero";
+        previous = null;
+        operator = null;
+        shouldReset = true;
+        updateDisplay();
+        return;
+      }
+      result = a / b;
+      break;
+    default: return;
+  }
+
+  expression = `${a} ${{
+    "+": "+", "-": "−", "*": "×", "/": "÷"
+  }[operator]} ${b} =`;
+
+  current = String(Number(result.toPrecision(12)));
+  previous = null;
+  operator = null;
+  shouldReset = true;
+  updateDisplay();
+}
+
+function clearCalculator() {
+  current = "0";
+  previous = null;
+  operator = null;
+  shouldReset = false;
+  expression = "";
+  updateDisplay();
+}
+
+function toggleSign() {
+  if (current === "0" || current === "Error") return;
+  current = current.startsWith("-")
+    ? current.slice(1)
+    : "-" + current;
+  updateDisplay();
+}
+
+function percentage() {
+  if (current === "Error") return;
+  current = String(Number(current) / 100);
+  updateDisplay();
+}
+
+buttons.addEventListener("click", (event) => {
+  const button = event.target.closest("button");
+  if (!button) return;
+
+  if (button.dataset.number !== undefined) {
+    inputNumber(button.dataset.number);
+  } else if (button.dataset.operator) {
+    chooseOperator(button.dataset.operator);
+  } else {
+    switch (button.dataset.action) {
+      case "clear": clearCalculator(); break;
+      case "decimal": inputDecimal(); break;
+      case "sign": toggleSign(); break;
+      case "percent": percentage(); break;
+      case "equals": calculate(); break;
+    }
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  const key = event.key;
+
+  if (/^[0-9]$/.test(key)) inputNumber(key);
+  else if (key === ".") inputDecimal();
+  else if (["+", "-", "*", "/"].includes(key)) {
+    chooseOperator(key);
+  } else if (key === "Enter" || key === "=") {
+    event.preventDefault();
+    calculate();
+  } else if (key === "Escape" || key === "Delete") {
+    clearCalculator();
+  } else if (key === "%") {
+    percentage();
+  } else if (key === "Backspace") {
+    if (!shouldReset && current !== "Error") {
+      current = current.length > 1
+        ? current.slice(0, -1)
+        : "0";
+      updateDisplay();
+    }
+  }
+});
+</script>
+
+</body>
+</html>
