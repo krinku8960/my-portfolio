@@ -1376,6 +1376,10 @@ bottom:8px;
     overflow-wrap: anywhere;
     color: #ddd;
 }
+.contact-info p a:hover{
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffffff;
+}
 
 .contact-info p i {
     color: #00eaff;

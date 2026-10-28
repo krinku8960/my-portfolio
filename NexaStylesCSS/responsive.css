@@ -701,4 +701,4 @@
         flex: 0 0 2px;
     }
 }
-@media (min-width: 768px) { a[href*="MR-Tutorials-Gyan"] { left: 30% !important; } }
+@media (min-width: 768px) { a[href*="MR-Tutorials-Gyan"] { left: 50% !important; } }
