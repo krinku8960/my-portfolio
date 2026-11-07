@@ -23,7 +23,7 @@ html.loading,body.loading{overflow:hidden !important;height:100vh;}
 /* MAIN CONTENT */ .loader-content{width:100%;max-width:850px;position:relative;z-index:2;}
 /* LOGO CIRCLE */ .logo-circle{width:220px;height:220px;border-radius:50%;border:5px solid transparent;border-top-color:#00eaff;border-bottom-color:#ff8500;box-shadow:0 0 15px #00eaff,inset 0 0 20px #00eaff55;margin:0 auto 25px;display:flex;justify-content:center;align-items:center;position:relative;animation:rotate 4s linear infinite;}
 .logo-circle::before{content:"";position:absolute;inset:12px;border-radius:50%;border:2px solid #00eaff;}
-.logo{background:url("file:///C:/Users/DELL%207490/Desktop/Logo_MrTutorialsGyan.png");background-size:cover;width:100%;height:100%;overflow:hidden;background-position:center center;}
+.logo{background:url("../Image_/Logo_MrTutorialsGyan.png");background-size:cover;width:100%;height:100%;overflow:hidden;background-position:center center;}
 .logo span{color:#00eaff;}.crown{position:absolute;top:30px;font-size:35px;color:#ff9900;filter:drop-shadow(0 0 10px #ff9900);}
 /* WEBSITE TITLE */ .site-name{font-size:clamp(27px,5vw,55px);font-weight:900;font-style:italic;margin-bottom:12px;text-shadow:0 0 15px #00eaff66;}
 .site-name span{color:#00eaff;}.site-name strong{color:#ff9900;}
