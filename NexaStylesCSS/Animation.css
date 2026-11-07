@@ -59,39 +59,26 @@
 
 /* ------------------------------------------------------------------------------------------------------------ */
 .logo {
-  width: 120px; aspect-ratio: 1
+  width:90%; aspect-ratio: 1
 }
-.logo svg { width: 100%; height: 100%; display: block; }
-    .mrt-logo { --c: #22c6f2; width: 100%; height: 100%; display: block; }
+ .logo { width: 120px; aspect-ratio: 1 / 1; }
+  .mrt-logo { --c: #22c6f2; width: 100%; height: 100%; display: block; }
 
-    .mrt-logo .ring { fill: none; stroke: var(--c); stroke-width: 10; stroke-linecap: round;
-            stroke-dasharray: 1395; stroke-dashoffset: 1395;
-            animation: mrt-draw 1.6s ease-out forwards; }
-    .mrt-logo .m { fill: var(--c); transform-box: fill-box; transform-origin: center;
-         animation: mrt-slideL .8s cubic-bezier(.2,.9,.3,1.2) .9s both; }
-    .mrt-logo .r { fill: var(--c); transform-box: fill-box; transform-origin: center;
-         animation: mrt-slideR .8s cubic-bezier(.2,.9,.3,1.2) 1.1s both; }
-    .mrt-logo .tut { fill: var(--c); font: 900 42px 'Arial Black', Impact, Arial, sans-serif;
-           animation: mrt-rise .7s ease-out 1.8s both; }
-    .mrt-logo .gyan { fill: var(--c); font: 800 26px 'Arial Black', Arial, sans-serif;
-            animation: mrt-rise .7s ease-out 2.3s both; }
-    .mrt-logo .line { stroke: var(--c); stroke-width: 3; stroke-linecap: round;
-            transform-box: fill-box; animation: mrt-grow .6s ease-out 2.0s both; }
-    .mrt-logo .line.l  { transform-origin: right center; }
-    .mrt-logo .line.rr { transform-origin: left center; }
-    .mrt-logo .btn { fill: var(--c); transform-box: fill-box; transform-origin: center;
-           animation: mrt-pop .6s cubic-bezier(.2,.9,.3,1.6) 2.1s both,
-                      mrt-pulse 2.2s ease-in-out 3s infinite; }
-    .mrt-logo .play { fill: #fff; transform-box: fill-box; transform-origin: center;
-            animation: mrt-pop .5s ease-out 2.4s both; }
-
-    @keyframes mrt-draw   { to { stroke-dashoffset: 0; } }
+  .mrt-logo .ring { fill: none; stroke: var(--c); stroke-width: 10; }
+  .mrt-logo .m,
+  .mrt-logo .r,
+  .mrt-logo .btn { fill: var(--c); }
+  .mrt-logo .play { fill: #fff; }
+  .mrt-logo .tut  { fill: var(--c); font: 900 42px 'Arial Black', Impact, Arial, sans-serif; }
+  .mrt-logo .gyan { fill: var(--c); font: 800 26px 'Arial Black', Arial, sans-serif; }
+  .mrt-logo .line { stroke: var(--c); stroke-width: 3; stroke-linecap: round; }
+    /* @keyframes mrt-draw   { to { stroke-dashoffset: 0; } }
     @keyframes mrt-slideL { from { opacity: 0; transform: translateX(-60px) skewX(-12deg); } to { opacity: 1; transform: none; } }
     @keyframes mrt-slideR { from { opacity: 0; transform: translateX(60px) skewX(12deg); } to { opacity: 1; transform: none; } }
     @keyframes mrt-rise   { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
     @keyframes mrt-grow   { from { transform: scaleX(0); opacity: 0; } to { transform: scaleX(1); opacity: 1; } }
     @keyframes mrt-pop    { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
-    @keyframes mrt-pulse  { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+    @keyframes mrt-pulse  { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } } */
 
     @media (prefers-reduced-motion: reduce) {
       .mrt-logo * { animation: none !important; stroke-dashoffset: 0 !important; }
