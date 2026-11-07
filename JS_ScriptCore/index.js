@@ -1,4 +1,10 @@
-
+        document.documentElement.classList.add("loading");
+        window.addEventListener("load", function() {
+            const loader = document.getElementById("page-loader");
+            loader.classList.add("hide");
+            document.documentElement.classList.remove("loading");
+            document.body.classList.remove("loading");
+        });
 window.addEventListener("scroll", function(){
     const scrollTop = window.scrollY;
     const documentHeight =

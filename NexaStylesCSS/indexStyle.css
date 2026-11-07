@@ -13,7 +13,34 @@
     scroll-padding-top: 100px;
     /* Navbar height */
 }
-
+html.loading,body.loading{overflow:hidden !important;height:100vh;}
+/* LOADER SCREEN */ #page-loader{position:fixed;inset:0;z-index:999999;background:radial-gradient(ellipse at center,#061a24 0%,#020609 65%,#000 100%);display:flex;justify-content:center;align-items:center;overflow:hidden;transition:opacity .7s ease,visibility .7s ease;}
+#page-loader.hide{opacity:0;visibility:hidden;pointer-events:none;}
+.cyber-loader{width:100%;min-height:100%;display:flex;justify-content:center;align-items:center;position:relative;padding:25px 15px;text-align:center;}
+/* NEON CORNER LINES */ .corner{position:absolute;width:150px;height:150px;border:5px solid #00eaff;filter:drop-shadow(0 0 12px #00eaff);opacity:.8;}
+.corner.one{top:-100px;left:-80px;transform:rotate(45deg);}
+.corner.two{bottom:-100px;right:-80px;transform:rotate(45deg);border-color:#ff8500;filter:drop-shadow(0 0 12px #ff8500);}
+/* MAIN CONTENT */ .loader-content{width:100%;max-width:850px;position:relative;z-index:2;}
+/* LOGO CIRCLE */ .logo-circle{width:220px;height:220px;border-radius:50%;border:5px solid transparent;border-top-color:#00eaff;border-bottom-color:#ff8500;box-shadow:0 0 15px #00eaff,inset 0 0 20px #00eaff55;margin:0 auto 25px;display:flex;justify-content:center;align-items:center;position:relative;animation:rotate 4s linear infinite;}
+.logo-circle::before{content:"";position:absolute;inset:12px;border-radius:50%;border:2px solid #00eaff;}
+.logo{background:url("file:///C:/Users/DELL%207490/Desktop/Logo_MrTutorialsGyan.png");background-size:cover;width:100%;height:100%;overflow:hidden;background-position:center center;}
+.logo span{color:#00eaff;}.crown{position:absolute;top:30px;font-size:35px;color:#ff9900;filter:drop-shadow(0 0 10px #ff9900);}
+/* WEBSITE TITLE */ .site-name{font-size:clamp(27px,5vw,55px);font-weight:900;font-style:italic;margin-bottom:12px;text-shadow:0 0 15px #00eaff66;}
+.site-name span{color:#00eaff;}.site-name strong{color:#ff9900;}
+.tagline{font-size:19px;font-weight:bold;letter-spacing:5px;margin-bottom:30px;}
+.tagline span{color:#00eaff;}/* SIDE ICONS */ .side-icon{position:absolute;top:40%;font-size:65px;color:#00eaff;text-shadow:0 0 15px #00eaff;animation:glow 2s infinite alternate;}
+.side-icon.left{left:3%;}.side-icon.right{right:3%;color:#ff9900;text-shadow:0 0 15px #ff9900;}
+/* PROGRESS BAR */ .progress-area{max-width:650px;margin:auto;display:flex;align-items:center;gap:18px;}
+.progress-track{height:17px;flex:1;border:2px solid #00eaff;border-radius:30px;padding:3px;box-shadow:0 0 15px #00eaff;overflow:hidden;}
+.progress-fill{width:35%;height:100%;border-radius:30px;background:linear-gradient(90deg,#00eaff,#008cff,#00eaff);box-shadow:0 0 15px #00eaff;animation:loading 2s ease-in-out infinite alternate;}/* LOADING TEXT */ .loading-text{font-size:30px;font-weight:bold;letter-spacing:10px; margin-top:15px; text-shadow:0 0 15px #00eaff;}.loading-text span{color:#00eaff;animation:blink 1s infinite;}
+.message{font-size:17px;margin-top:10px;font-style:italic;}.message strong{color:#ff9900;}
+/* BOTTOM LINE */ .bottom-line{margin:10px auto 0;width:65%;height:3px;background:linear-gradient(90deg,transparent,#00eaff,#ff9900,transparent);box-shadow:0 0 15px #00eaff;}
+/* ANIMATIONS */ @keyframes rotate{to{transform:rotate(360deg);}}@keyframes counterRotate{to{transform:rotate(-360deg);}}@keyframes loading{from{width:15%;}to{width:95%;}}
+@keyframes glow{from{opacity:.5;}to{opacity:1;}}@keyframes blink{50%{opacity:0;}}/* MOBILE RESPONSIVE */ @media(max-width:600px){.logo-circle{width:155px;height:155px;}
+.logo{font-size:60px;}.crown{top:17px;font-size:25px;}.tagline{font-size:13px;letter-spacing:3px;margin-bottom:50px;}
+.side-icon{font-size:30px;top:25%;}.progress-area{gap:10px;}.loading-text{font-size:21px;letter-spacing:6px;}
+.message{font-size:13px;line-height:1.6;}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;}}
+/*--------------------------------------------- end load animation ----------------------------------------------------------- */
 html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
