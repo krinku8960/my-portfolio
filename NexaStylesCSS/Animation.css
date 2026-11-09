@@ -81,54 +81,109 @@
       .mrt-logo * { animation: none !important; stroke-dashoffset: 0 !important; }
     }
 
+/* ===== DIWALI POSTER POPUP ===== */
+
 .poster-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(8px);
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 99999;
-    padding: 15px;
+    padding: 20px;
+    z-index: 999999;
+    overflow: hidden;
 }
 
 .poster-container {
     position: relative;
     width: 100%;
-    max-width: 450px;
-    animation: posterZoom 0.6s ease;
+    max-width: 550px;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+    animation: posterZoom 0.7s ease;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
 }
 
-.poster-container img {
+.diwali-poster {
     width: 100%;
+    height: auto;
     display: block;
-    border-radius: 15px;
-    box-shadow: 0 0 35px rgba(0, 255, 255, 0.4);
+    border-radius: 20px;
 }
 
 .poster-close {
     position: absolute;
-    top: -15px;
-    right: -15px;
-    width: 38px;
-    height: 38px;
-    border: none;
-    border-radius: 50%;
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
     background: #ff1744;
     color: white;
-    font-size: 27px;
+    border: 2px solid white;
+    border-radius: 50%;
+    font-size: 30px;
     cursor: pointer;
-    z-index: 2;
+    z-index: 10;
+    transition: 0.3s ease;
+}
+
+.poster-close:hover {
+    background: #ffd700;
+    color: black;
+    transform: rotate(90deg) scale(1.1);
+}
+
+.poster-footer {
+    padding: 12px;
+    background: linear-gradient(135deg, #080820, #16164a);
+    color: #ffd700;
+}
+
+.poster-footer span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.poster-footer p {
+    color: white;
+    font-size: 13px;
+    margin-top: 5px;
 }
 
 @keyframes posterZoom {
     from {
         opacity: 0;
-        transform: scale(0.5);
+        transform: scale(0.6);
     }
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 600px) {
+    .poster-overlay {
+        padding: 15px;
+    }
+
+    .poster-container {
+        max-width: 100%;
+        max-height: 85vh;
+    }
+
+    .poster-close {
+        width: 36px;
+        height: 36px;
+        font-size: 25px;
     }
 }

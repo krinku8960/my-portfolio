@@ -1372,13 +1372,21 @@
         </div>
       </div>
       <p class="copyright">© 2026 MR Tutorials Gyan. All Rights Reserved.</p>
-      <!-- Center Poster Popup -->
+<!-- MR Tutorials Gyan Diwali Poster Popup -->
 <div class="poster-overlay" id="posterPopup">
     <div class="poster-container">
-        <button class="poster-close" onclick="closePoster()">×</button>
-
-        <img src="../Image_/PoaterIamge.png" alt="MR Tutorials Gyan Poster">
+        <button class="poster-close" id="posterClose">&times;</button>
+        <img
+            src="../Image_/PoaterIamge.png"
+            alt="MR Tutorials Gyan Happy Diwali 2026"
+            class="diwali-poster"
+        >
+        <div class="poster-footer">
+            <span>✨ MR Tutorials Gyan ✨</span>
+            <p>Lighting Up Minds, Inspiring Futures!</p>
+        </div>
     </div>
+</div>
 </div>
     </footer>
     <!--------------------- EmailJS Library:-------------->
@@ -1396,9 +1404,32 @@
         delay: 0,
         anchorPlacement: "top-bottom",
       });
-      function closePoster() {
-    document.getElementById("posterPopup").style.display = "none";
-}
+   // ===== MR TUTORIALS GYAN POSTER =====
+
+const posterPopup = document.getElementById("posterPopup");
+const posterClose = document.getElementById("posterClose");
+
+// Disable background scrolling
+document.body.style.overflow = "hidden";
+
+// Close Poster Function
+posterClose.addEventListener("click", function () {
+
+    posterPopup.style.display = "none";
+
+    // Restore Website Scrolling
+    document.body.style.overflow = "";
+
+});
+
+// Prevent Background Scroll
+posterPopup.addEventListener("wheel", function (e) {
+
+    if (!e.target.closest(".poster-container")) {
+        e.preventDefault();
+    }
+
+}, { passive: false });
     </script>
     <script src="../JS_ScriptCore/index.js"></script>
   </body>
@@ -1417,7 +1448,7 @@ git pull --rebase origin main
 git push origin main -->
 
 <!-- line 1380 poster add iamge---- -->
- 
+
  <!-- cd /d D:\CodeByRinku_
 git pull --rebase origin main
 git add -A
