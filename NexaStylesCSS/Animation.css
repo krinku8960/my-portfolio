@@ -1,75 +1,108 @@
-
 /* ------------------------------------- -:::::-: Services box animation styling hover -::::::- ---------------------------------------------- */
 
-.service-item:hover{
-    transform:translateY(5%); border:1px solid white;
+.service-item:hover {
+    transform: translateY(5%);
+    border: 1px solid white;
 }
 
 /*------------------------------------- this user photo animation styling in flip to change in this image --------------------------------------------- */
 
-.card{
-    width:250px;
-    height:320px;
-    perspective:1000px;
+.card {
+    width: 250px;
+    height: 320px;
+    perspective: 1000px;
 }
 
-.card-inner{
-    width:100%;
-    height:100%;
-    position:relative;
-    transform-style:preserve-3d;
-    transition:transform 0.8s ease;
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
 }
 
-.card:hover .card-inner{
-    transform:rotateY(180deg);
+.card:hover .card-inner {
+    transform: rotateY(180deg);
 }
 
 .about-imgProfileFront,
-.about-imgProfileBack{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    border:2px solid rgba(0, 200, 255, 0.97);
-    border-radius:30px;
-    box-shadow:2px 2px 5px rgba(255,255,255,0.414);
-    overflow:hidden;
+.about-imgProfileBack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(0, 200, 255, 0.97);
+    border-radius: 30px;
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.414);
+    overflow: hidden;
 
-    backface-visibility:hidden;
-    -webkit-backface-visibility:hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
-.about-imgProfileFront{
-    transform:rotateY(0deg);
+.about-imgProfileFront {
+    transform: rotateY(0deg);
 }
 
-.about-imgProfileBack{
-    transform:rotateY(180deg);
+.about-imgProfileBack {
+    transform: rotateY(180deg);
 }
 
 .about-imgProfileFront img,
-.about-imgProfileBack img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:30px;
+.about-imgProfileBack img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------ */
- .logo { width: 80%; aspect-ratio: 1 / 1; }
-  .mrt-logo { --c: #22c6f2; width: 100%; height: 100%; display: block; }
+.logo {
+    width: 80%;
+    aspect-ratio: 1 / 1;
+}
 
-  .mrt-logo .ring { fill: none; stroke: var(--c); stroke-width: 10; }
-  .mrt-logo .m,
-  .mrt-logo .r,
-  .mrt-logo .btn { fill: var(--c); }
-  .mrt-logo .play { fill: #fff; }
-  .mrt-logo .tut  { fill: var(--c); font: 900 42px 'Arial Black', Impact, Arial, sans-serif; }
-  .mrt-logo .gyan { fill: var(--c); font: 800 26px 'Arial Black', Arial, sans-serif; }
-  .mrt-logo .line { stroke: var(--c); stroke-width: 3; stroke-linecap: round; }
-    /* @keyframes mrt-draw   { to { stroke-dashoffset: 0; } }
+.mrt-logo {
+    --c: #22c6f2;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.mrt-logo .ring {
+    fill: none;
+    stroke: var(--c);
+    stroke-width: 10;
+}
+
+.mrt-logo .m,
+.mrt-logo .r,
+.mrt-logo .btn {
+    fill: var(--c);
+}
+
+.mrt-logo .play {
+    fill: #fff;
+}
+
+.mrt-logo .tut {
+    fill: var(--c);
+    font: 900 42px 'Arial Black', Impact, Arial, sans-serif;
+}
+
+.mrt-logo .gyan {
+    fill: var(--c);
+    font: 800 26px 'Arial Black', Arial, sans-serif;
+}
+
+.mrt-logo .line {
+    stroke: var(--c);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+/* @keyframes mrt-draw   { to { stroke-dashoffset: 0; } }
     @keyframes mrt-slideL { from { opacity: 0; transform: translateX(-60px) skewX(-12deg); } to { opacity: 1; transform: none; } }
     @keyframes mrt-slideR { from { opacity: 0; transform: translateX(60px) skewX(12deg); } to { opacity: 1; transform: none; } }
     @keyframes mrt-rise   { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
@@ -77,9 +110,12 @@
     @keyframes mrt-pop    { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
     @keyframes mrt-pulse  { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } } */
 
-    @media (prefers-reduced-motion: reduce) {
-      .mrt-logo * { animation: none !important; stroke-dashoffset: 0 !important; }
+@media (prefers-reduced-motion: reduce) {
+    .mrt-logo * {
+        animation: none !important;
+        stroke-dashoffset: 0 !important;
     }
+}
 
 /* ===== DIWALI POSTER POPUP ===== */
 
@@ -163,6 +199,7 @@
         opacity: 0;
         transform: scale(0.6);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -174,19 +211,23 @@
 @media (max-width: 600px) {
     .poster-overlay {
         padding: 15px;
-            overflow: hidden;
+        overflow: hidden;
     }
 
     .poster-container {
         max-width: 100%;
         max-height: 85vh;
-            overflow: hidden;
+        overflow: hidden;
 
     }
 
     .poster-close {
-        width: 36px;
-        height: 36px;
-        font-size: 25px;
+      width: clamp(22px, 3vw, 36px);
+    height: clamp(22px, 3vw, 36px);
+    font-size: clamp(15px, 2vw, 25px);
+     display:flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
     }
 }
