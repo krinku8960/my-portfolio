@@ -58,64 +58,15 @@
 }
 
 /* ------------------------------------------------------------------------------------------------------------ */
-.logo {
-    width: 80%;
-    aspect-ratio: 1 / 1;
-}
+.logo{width:80%;aspect-ratio:1/1}
+.mrt-logo{--c:#22c6f2;display:block;width:100%;height:100%}
+.mrt-logo .ring{fill:none;stroke:var(--c);stroke-width:10}
+.mrt-logo .m,.mrt-logo .r,.mrt-logo .btn,.mrt-logo .tut,.mrt-logo .gyan{fill:var(--c)}
+.mrt-logo .play{fill:#fff}
+.mrt-logo .tut{font:900 42px 'Arial Black',Impact,Arial,sans-serif}
+.mrt-logo .gyan{font:800 26px 'Arial Black',Arial,sans-serif}
+.mrt-logo .line{stroke:var(--c);stroke-width:3;stroke-linecap:round}
 
-.mrt-logo {
-    --c: #22c6f2;
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.mrt-logo .ring {
-    fill: none;
-    stroke: var(--c);
-    stroke-width: 10;
-}
-
-.mrt-logo .m,
-.mrt-logo .r,
-.mrt-logo .btn {
-    fill: var(--c);
-}
-
-.mrt-logo .play {
-    fill: #fff;
-}
-
-.mrt-logo .tut {
-    fill: var(--c);
-    font: 900 42px 'Arial Black', Impact, Arial, sans-serif;
-}
-
-.mrt-logo .gyan {
-    fill: var(--c);
-    font: 800 26px 'Arial Black', Arial, sans-serif;
-}
-
-.mrt-logo .line {
-    stroke: var(--c);
-    stroke-width: 3;
-    stroke-linecap: round;
-}
-
-/* @keyframes mrt-draw   { to { stroke-dashoffset: 0; } }
-    @keyframes mrt-slideL { from { opacity: 0; transform: translateX(-60px) skewX(-12deg); } to { opacity: 1; transform: none; } }
-    @keyframes mrt-slideR { from { opacity: 0; transform: translateX(60px) skewX(12deg); } to { opacity: 1; transform: none; } }
-    @keyframes mrt-rise   { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-    @keyframes mrt-grow   { from { transform: scaleX(0); opacity: 0; } to { transform: scaleX(1); opacity: 1; } }
-    @keyframes mrt-pop    { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
-    @keyframes mrt-pulse  { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } } */
-
-@media (prefers-reduced-motion: reduce) {
-    .mrt-logo * {
-        animation: none !important;
-        stroke-dashoffset: 0 !important;
-    }
-}
 
 /* ===== DIWALI POSTER POPUP ===== */
 
