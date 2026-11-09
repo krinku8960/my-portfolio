@@ -307,7 +307,8 @@
           </div>
         </div>
       </div>
-      <div class="services-box" id="services">
+      <section id="services_Scroll">
+      <div class="services-box">
         <h2><i class="fa-solid fa-briefcase"></i> SERVICES</h2>
 
         <div class="services-boxContainer">
@@ -342,11 +343,8 @@
           </div>
         </div>
       </div>
-
-      <section
-        class="recentProjecti-content_navTarget"
-        id="recentProjecti-content_navTarget"
-      >
+      </section>
+      <section class="recentProjecti-content_navTarget" id="recentProjecti-content_navTarget">
         <!-- Section Header -->
         <div class="projects-header">
           <h2 class="projects-title">
@@ -1213,7 +1211,7 @@
             >
           </li>
           <li>
-            <a href="#services" target="_blank"
+            <a href="#services_Scroll"
               ><i class="fa-solid fa-gear"></i> Services</a
             >
           </li>
@@ -1374,6 +1372,14 @@
         </div>
       </div>
       <p class="copyright">© 2026 MR Tutorials Gyan. All Rights Reserved.</p>
+      <!-- Center Poster Popup -->
+<div class="poster-overlay" id="posterPopup">
+    <div class="poster-container">
+        <button class="poster-close" onclick="closePoster()">×</button>
+
+        <img src="../Image_/PoaterIamge.png" alt="MR Tutorials Gyan Poster">
+    </div>
+</div>
     </footer>
     <!--------------------- EmailJS Library:-------------->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -1390,13 +1396,16 @@
         delay: 0,
         anchorPlacement: "top-bottom",
       });
+      function closePoster() {
+    document.getElementById("posterPopup").style.display = "none";
+}
     </script>
     <script src="../JS_ScriptCore/index.js"></script>
   </body>
 </html>
 
 
-<!-- cd D:\CodeByRinku_
+<!-- cd /d D:\CodeByRinku_
 git add .
 git commit -m "Update website design"
 git pull --rebase origin main
@@ -1406,3 +1415,5 @@ if nothing to commit next Command run
 
 git pull --rebase origin main
 git push origin main -->
+
+<!-- line 1380 poster add iamge---- -->
