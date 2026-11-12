@@ -163,32 +163,33 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// poster maker --------------------------------------------------
+// poster maker -----------------------------------------------------------------------------------------------------------------
+
  // ===== MR TUTORIALS GYAN POSTER =====
 
-const posterPopup = document.getElementById("posterPopup");
-const posterClose = document.getElementById("posterClose");
+// const posterPopup = document.getElementById("posterPopup");
+// const posterClose = document.getElementById("posterClose");
 
-// Disable background scrolling
-document.body.style.overflow = "hidden";
+// // Disable background scrolling
+// document.body.style.overflow = "hidden";
 
-// Close Poster Function
-posterClose.addEventListener("click", function () {
+// // Close Poster Function
+// posterClose.addEventListener("click", function () {
 
-    posterPopup.style.display = "none";
+//     posterPopup.style.display = "none";
 
-    // Restore Website Scrolling
-    document.body.style.overflow = "";
+//     // Restore Website Scrolling
+//     document.body.style.overflow = "";
 
-});
+// });
 
-// Prevent Background Scroll
-posterPopup.addEventListener("wheel", function (e) {
+// // Prevent Background Scroll
+// posterPopup.addEventListener("wheel", function (e) {
 
-    if (!e.target.closest(".poster-container")) {
-        e.preventDefault();
-    }
+//     if (!e.target.closest(".poster-container")) {
+//         e.preventDefault();
+//     }
 
-}, { passive: false });
+// }, { passive: false });
 
-// poster maker  end--------------------------------------------------
+// poster maker  end----------------------------------------------------------------------------------------------------------------------------
